@@ -21,7 +21,7 @@
                 <Button Content ="{Binding naviButton2Content}" Margin="5" Command="{Binding navigation}" CommandParameter="Page2"></Button>
             </StackPanel>
             <StackPanel DockPanel.Dock="Right">
-                <Frame Name="frame" NavigationUIVisibility="Hidden"/>
+                <Frame Name="frame" NavigationUIVisibility="Visible"/>
             </StackPanel>
         </DockPanel>
     </Grid>
