@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfAppSample.ViewModels;
 
 namespace WpfAppSample
 {
@@ -24,6 +25,9 @@ namespace WpfAppSample
         {
             InitializeComponent();
 
+            App.RootFrame = this.frame;
+
+            // 初期画面
             Uri uri = new Uri("/Views/Page1.xaml", UriKind.Relative);
             frame.Source = uri;
         }

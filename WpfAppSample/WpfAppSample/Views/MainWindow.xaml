@@ -17,8 +17,8 @@
                 <MenuItem Header="Help"></MenuItem>
             </Menu>
             <StackPanel DockPanel.Dock="Left" Width="100">
-                <Button Content ="{Binding naviButton1Content}" Margin="5"></Button>
-                <Button Content ="{Binding naviButton2Content}" Margin="5" Command="{Binding navigation}"></Button>
+                <Button Content ="{Binding naviButton1Content}" Margin="5" Command="{Binding navigation}" CommandParameter="Page1"></Button>
+                <Button Content ="{Binding naviButton2Content}" Margin="5" Command="{Binding navigation}" CommandParameter="Page2"></Button>
             </StackPanel>
             <StackPanel DockPanel.Dock="Right">
                 <Frame Name="frame" NavigationUIVisibility="Hidden"/>

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Navigation;
 using System.Windows;
+using WpfAppSample;
 
 namespace WpfAppSample.ViewModels
 {
@@ -67,12 +68,23 @@ namespace WpfAppSample.ViewModels
         private DelegateCommand _navigation;
         public DelegateCommand navigation
         {
+            
             get => this._navigation ?? (this._navigation = new DelegateCommand(
-              _ =>
+              o =>
               {
-                  var navigationWindow = (NavigationWindow)Application.Current.MainWindow;
-                  navigationWindow.Navigate(new Views.Page2());
+                  Uri uri;
+                  if ((string)o == "Page1")
+                  {
+                      uri = new Uri("/Views/Page1.xaml", UriKind.RelativeOrAbsolute);
+                  }
+                  else
+                  {
+                      uri = new Uri("/Views/Page2.xaml", UriKind.RelativeOrAbsolute);
+                  }
+                  App.RootFrame.Source = uri;
               }));
+
+            
         }
         #endregion
     }

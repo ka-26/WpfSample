@@ -24,5 +24,15 @@ namespace WpfAppSample.Views
         {
             InitializeComponent();
         }
+
+        private void Grid_Unloaded(object sender, RoutedEventArgs e)
+        {
+            var aaa = 0;
+        }
+
+        private void Page_Unloaded(object sender, RoutedEventArgs e)
+        {
+            var bbb = 0;
+        }
     }
 }
