@@ -15,6 +15,7 @@ namespace WpfAppSample.ViewModels
     {
         #region プロパティ・フィールド
         /// <summary>ナビボタン1タイトル</summary>
+        public ReactiveProperty<string> naviButton1Content2 = new ReactiveProperty<string>();
         string _naviButton1Content;
         public string naviButton1Content
         {
@@ -30,6 +31,7 @@ namespace WpfAppSample.ViewModels
         }
 
         /// <summary>ナビボタン2タイトル</summary>
+        public ReactiveProperty<string> naviButton2Content2 = new ReactiveProperty<string>();
         string _naviButton2Content;
         public string naviButton2Content
         {
@@ -53,6 +55,9 @@ namespace WpfAppSample.ViewModels
         {
             naviButton1Content = "ページ１";
             naviButton2Content = "ページ２";
+
+            naviButton1Content2.Value = "ページ１";
+            naviButton2Content2.Value = "ページ２";
         }
 
         #endregion
