@@ -11,40 +11,16 @@ using WpfAppSample;
 
 namespace WpfAppSample.ViewModels
 {
-    class MainWindowViewModel : INotifyPropertyChanged
+    class MainWindowViewModel
     {
         #region プロパティ・フィールド
         /// <summary>ナビボタン1タイトル</summary>
-        public ReactiveProperty<string> naviButton1Content2 = new ReactiveProperty<string>();
-        string _naviButton1Content;
-        public string naviButton1Content
-        {
-            get => _naviButton1Content;
-            set
-            {
-                if (_naviButton1Content != value)
-                {
-                    _naviButton1Content = value;
-                    RaisePropertyChanged();
-                }
-            }
-        }
+        public ReactiveProperty<string> naviButton1Content { get; set; } = new ReactiveProperty<string>();
 
         /// <summary>ナビボタン2タイトル</summary>
-        public ReactiveProperty<string> naviButton2Content2 = new ReactiveProperty<string>();
-        string _naviButton2Content;
-        public string naviButton2Content
-        {
-            get => _naviButton2Content;
-            set
-            {
-                if (_naviButton2Content != value)
-                {
-                    _naviButton2Content = value;
-                    RaisePropertyChanged();
-                }
-            }
-        }
+        public ReactiveProperty<string> naviButton2Content { get; set; } = new ReactiveProperty<string>();
+
+        public ReactiveCollection<dummyClass> listList { get; set; } = new ReactiveCollection<dummyClass>();
         #endregion
 
         #region コンストラクタ
@@ -53,27 +29,23 @@ namespace WpfAppSample.ViewModels
         /// </summary>
         public MainWindowViewModel()
         {
-            naviButton1Content = "ページ１";
-            naviButton2Content = "ページ２";
+            naviButton1Content.Value = "ページ１";
+            naviButton2Content.Value = "ページ２";
 
-            naviButton1Content2.Value = "ページ１";
-            naviButton2Content2.Value = "ページ２";
+            listList.Add(new dummyClass { value = "111" });
+            listList.Add(new dummyClass { value = "222" });
+            listList.Add(new dummyClass { value = "333" });
+            listList.Add(new dummyClass { value = "444" });
+            listList.Add(new dummyClass { value = "555" });
         }
 
-        #endregion
-
-        #region INotifyPropertyChangedの実装
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged([CallerMemberName] string propertyName = null)
-          => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         #endregion
 
         #region デリゲートコマンド
         private DelegateCommand _navigation;
         public DelegateCommand navigation
         {
-            
+
             get => this._navigation ?? (this._navigation = new DelegateCommand(
               o =>
               {
@@ -89,8 +61,14 @@ namespace WpfAppSample.ViewModels
                   App.RootFrame.Source = uri;
               }));
 
-            
+
         }
         #endregion
+
+        public class dummyClass{
+
+            public string value { get; set; }
+        }
+
     }
 }

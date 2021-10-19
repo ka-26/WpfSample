@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace WpfAppSample.ViewModels
+namespace WpfAppSample
 {
     public class ReactiveProperty<T> : INotifyPropertyChanged
     {
