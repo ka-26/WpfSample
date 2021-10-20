@@ -34,7 +34,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Background="Blue"/>
                         <TextBlock Grid.Row="0" Grid.Column="4" Grid.RowSpan="5" Background="Blue"/>
-                        <TextBox AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True" Cursor="Arrow" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="4" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Text="{Binding text.Value}" Background="{Binding backColor.Value}" TextAlignment="Center"/>
+                        <TextBox AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True" Cursor="Arrow" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="4" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Text="{Binding text.Value}" Background="{Binding backColor.Value}" HorizontalContentAlignment="Center"/>
                         <Grid.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="メニュー１"/>
