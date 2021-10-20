@@ -14,7 +14,7 @@
     <Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.648,-1.443"/>
         <TextBox HorizontalAlignment="Left" Margin="55,12,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <DataGrid Margin="10,35,10,10" ItemsSource="{Binding Path=listList}" AutoGenerateColumns="False" SelectionUnit="Cell">
+        <DataGrid Margin="10,35,10,10" ItemsSource="{Binding Path=ColumnDefinition}" AutoGenerateColumns="False" SelectionUnit="Cell">
             <DataGrid.Resources>
                 <DataTemplate x:Key="StageJoutai">
                     <Grid>
