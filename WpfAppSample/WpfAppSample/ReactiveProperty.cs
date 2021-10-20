@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 
 namespace WpfAppSample
 {
-    public class ReactiveProperty<T> : INotifyPropertyChanged
+    public class BindingProperty<T> : INotifyPropertyChanged
     {
         #region プロパティ・フィールド
         /// <summary>ナビボタン1タイトル</summary>

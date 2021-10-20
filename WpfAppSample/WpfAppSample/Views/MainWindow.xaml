@@ -18,7 +18,7 @@
             </Menu>
             <StackPanel DockPanel.Dock="Left" Width="100">
                 <Button Content ="{Binding naviButton1Content.Value}" Margin="5" Command="{Binding navigation}" CommandParameter="Page1"></Button>
-                <Button Content ="{Binding listList[4].value}" Margin="5" Command="{Binding navigation}" CommandParameter="Page2"></Button>
+                <Button Content ="{Binding listList[4].value.Value}" Margin="5" Command="{Binding navigation}" CommandParameter="Page2"></Button>
             </StackPanel>
             <StackPanel DockPanel.Dock="Right">
                 <Frame Name="frame" NavigationUIVisibility="Visible"/>
