@@ -17,8 +17,8 @@
         <vm:Page1ViewModel/>
     </Page.DataContext>
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.648,-1.443"/>
-        <TextBox HorizontalAlignment="Left" Margin="55,12,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Name="btn1" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.648,-1.443"/>
+        <TextBox HorizontalAlignment="Left" Margin="55,12,0,0" Width="{Binding Path=Width, ElementName=c1}" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <DataGrid Margin="10,35,10,10" ItemsSource="{Binding Path=rows}" AutoGenerateColumns="False" SelectionUnit="Cell">
             <DataGrid.Resources>
                 <DataTemplate x:Key="StageJoutai">
@@ -78,7 +78,21 @@
                 </Style>
             </DataGrid.CellStyle>
             <DataGrid.Columns>
-                <DataGridTemplateColumn Width="100" CellTemplate="{StaticResource StageJoutai}"/>
+                <DataGridTemplateColumn x:Name="c1" Width="100" CellTemplate="{StaticResource StageJoutai}">
+                    <DataGridTemplateColumn.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Text="aaa" Background="AntiqueWhite" Width="{Binding Width, ElementName=c1}"></TextBlock>
+                            <TextBlock Grid.Row="1" Text="bbb" Background="BlueViolet"></TextBlock>
+                        </Grid>
+                    </DataGridTemplateColumn.Header>
+                </DataGridTemplateColumn>
                 <DataGridTemplateColumn Width="100" CellTemplate="{StaticResource StageJoutai}"/>
                 <DataGridTemplateColumn Width="100" CellTemplate="{StaticResource StageJoutai}"/>
             </DataGrid.Columns>
