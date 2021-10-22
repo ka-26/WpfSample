@@ -78,7 +78,7 @@
                 </Style>
             </DataGrid.CellStyle>
             <DataGrid.Columns>
-                <DataGridTemplateColumn x:Name="c1" Width="100" CellTemplate="{StaticResource StageJoutai}">
+                <DataGridTemplateColumn x:Name="c1" Width="200" CellTemplate="{StaticResource StageJoutai}">
                     <DataGridTemplateColumn.Header>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -86,7 +86,7 @@
                                 <RowDefinition Height="20"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="{Binding Width, ElementName=c1}"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Row="0" Text="aaa" Background="AntiqueWhite" Width="{Binding Width, ElementName=c1}"></TextBlock>
                             <TextBlock Grid.Row="1" Text="bbb" Background="BlueViolet"></TextBlock>

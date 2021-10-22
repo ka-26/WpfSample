@@ -20,19 +20,19 @@ namespace WpfAppSample.Views
     /// </summary>
     public partial class Page2 : Page
     {
+        public int ROW_NUM = 10;
+        public int COL_NUM = 10;
+
         public Page2()
         {
             InitializeComponent();
+
+            DataTemplate dt = this.FindResource("StageJoutai") as DataTemplate;
+
+            GRID_DATA.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
+            GRID_DATA.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
+            GRID_DATA.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
         }
 
-        private void Grid_Unloaded(object sender, RoutedEventArgs e)
-        {
-            var aaa = 0;
-        }
-
-        private void Page_Unloaded(object sender, RoutedEventArgs e)
-        {
-            var bbb = 0;
-        }
     }
 }

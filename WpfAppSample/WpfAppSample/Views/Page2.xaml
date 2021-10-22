@@ -3,14 +3,78 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:vm="clr-namespace:WpfAppSample.ViewModels"
       xmlns:local="clr-namespace:WpfAppSample.Views"
+      xmlns:conv="clr-namespace:WpfAppSample.Views.Converter"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page2" Unloaded="Page_Unloaded">
+      Title="Page2">
+    <Page.DataContext>
+        <vm:Page2ViewModel/>
+    </Page.DataContext>
 
-    <Grid Unloaded="Grid_Unloaded">
-        <Button Content="Button" HorizontalAlignment="Left" Margin="238,97,0,0" VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="344,127,0,0" VerticalAlignment="Top"/>
+    <Page.Resources>
+        <conv:ChangeToTextConverter x:Key="ChangeToTextConverter"/>
+        <conv:ChangeToColorConverter x:Key="ChangeToColorConverter"/>
+        <DataTemplate x:Key="StageJoutai">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="8"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Background="Blue"/>
+                <TextBlock Grid.Row="0" Grid.Column="4" Grid.RowSpan="5" Background="Blue"/>
+                <TextBox AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True" Cursor="Arrow" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="4" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center">
+                    <TextBox.Text>
+                        <MultiBinding Converter="{StaticResource ChangeToTextConverter}">
+                            <Binding Path="."/>
+                            <Binding Path="." RelativeSource="{RelativeSource AncestorType=DataGridCell}"/>
+                        </MultiBinding>
+                    </TextBox.Text>
+                    <TextBox.Background>
+                        <MultiBinding Converter="{StaticResource ChangeToColorConverter}">
+                            <Binding Path="."/>
+                            <Binding Path="." RelativeSource="{RelativeSource AncestorType=DataGridCell}"/>
+                        </MultiBinding>
+                    </TextBox.Background>
+                </TextBox>
+                <Grid.ContextMenu>
+                    <ContextMenu>
+                        <Border BorderBrush="Black" BorderThickness="0, 0, 0,1">
+                            <MenuItem Header="メニュー１" Width="100">
+                            </MenuItem>
+                        </Border>
+                        <MenuItem Header="メニュー２"/>
+                        <MenuItem Header="メニュー３"/>
+                        <MenuItem Header="メニュー４"/>
+                    </ContextMenu>
+                </Grid.ContextMenu>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid>
+        <DockPanel>
+            <DataGrid Name="ROW_HEADER" DockPanel.Dock="Left" HeadersVisibility="None" MinWidth="100" MinHeight="100">
 
+            </DataGrid>
+
+            <DataGrid Name="COL_HEADER" DockPanel.Dock="Top" HeadersVisibility="None" MinWidth="100" MinHeight="100">
+
+            </DataGrid>
+
+            <DataGrid Name="GRID_DATA" DockPanel.Dock="Top" HeadersVisibility="None" MinWidth="100" MinHeight="100" ItemsSource="{Binding Path=rows}" AutoGenerateColumns="False" SelectionUnit="Cell">
+
+            </DataGrid>
+        </DockPanel>
     </Grid>
 </Page>
