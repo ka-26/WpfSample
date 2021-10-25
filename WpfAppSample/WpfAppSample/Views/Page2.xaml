@@ -64,11 +64,11 @@
     </Page.Resources>
     <Grid>
         <DockPanel>
-            <DataGrid Name="ROW_HEADER" DockPanel.Dock="Left" HeadersVisibility="None" MinWidth="100" MinHeight="100">
+            <DataGrid Name="ROW_HEADER" DockPanel.Dock="Left" HeadersVisibility="None" MinWidth="100" MinHeight="100" ItemsSource="{Binding Path=rows}" AutoGenerateColumns="False">
 
             </DataGrid>
 
-            <DataGrid Name="COL_HEADER" DockPanel.Dock="Top" HeadersVisibility="None" MinWidth="100" MinHeight="100">
+            <DataGrid Name="COL_HEADER" DockPanel.Dock="Top" HeadersVisibility="None" MinWidth="100" MinHeight="100" ItemsSource="{Binding Path=rows}" AutoGenerateColumns="False">
 
             </DataGrid>
 

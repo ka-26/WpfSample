@@ -32,6 +32,10 @@ namespace WpfAppSample.Views
             GRID_DATA.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
             GRID_DATA.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
             GRID_DATA.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
+
+            ROW_HEADER.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
+            ROW_HEADER.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
+            ROW_HEADER.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
         }
 
     }
