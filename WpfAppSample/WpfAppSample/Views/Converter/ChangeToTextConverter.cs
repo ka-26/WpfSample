@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using WpfAppSample.ViewModels;
+using WpfAppSample.Views;
 using System.Collections.ObjectModel;
 
 namespace WpfAppSample.Views.Converter

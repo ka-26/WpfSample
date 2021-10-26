@@ -68,7 +68,7 @@
 
             </DataGrid>
 
-            <DataGrid Name="COL_HEADER" DockPanel.Dock="Top" HeadersVisibility="None" MinWidth="100" MinHeight="100" ItemsSource="{Binding Path=rows}" AutoGenerateColumns="False">
+            <DataGrid Name="COL_HEADER" DockPanel.Dock="Top" HeadersVisibility="Column" MinWidth="100" MinHeight="100" ItemsSource="{Binding Path=rows}" AutoGenerateColumns="False">
 
             </DataGrid>
 

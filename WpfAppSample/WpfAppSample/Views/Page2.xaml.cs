@@ -36,7 +36,34 @@ namespace WpfAppSample.Views
             ROW_HEADER.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
             ROW_HEADER.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
             ROW_HEADER.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
+
+            COL_HEADER.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
+            COL_HEADER.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
+            COL_HEADER.Columns.Add(new DataGridTemplateColumn() { CellTemplate = dt });
+
+            GRID_DATA.BindDataGridColumnsWidth(COL_HEADER);
+
+
+        }
+    }
+
+    public static class DataGridEx
+    {
+        public static void BindDataGridColumnWidth(this DataGridColumn col1, DataGridColumn col2)
+        {
+            var b = new Binding("Width");
+            b.Source = col2;
+            b.Mode = BindingMode.TwoWay;
+            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            BindingOperations.SetBinding(col1, DataGridColumn.WidthProperty, b);
         }
 
+        public static void BindDataGridColumnsWidth(this DataGrid dg1, DataGrid dg2)
+        {
+            for (int i = 0; i < dg1.Columns.Count; i++)
+            {
+                dg1.Columns[i].BindDataGridColumnWidth(dg2.Columns[i]);
+            }
+        }
     }
 }
