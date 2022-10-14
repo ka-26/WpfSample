@@ -53,6 +53,7 @@ namespace WpfAppSample.ViewModels
     /// </summary>
     public class RowDefinition
     {
+        public BindingProperty<double> height;
         public ObservableCollection<CellDefinition> columns = new ObservableCollection<CellDefinition>();
     }
 
